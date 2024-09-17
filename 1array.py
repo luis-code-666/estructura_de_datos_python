@@ -10,6 +10,10 @@ Methods:
     5. Replacement
 """
 
+from functools import reduce
+import random
+
+
 class Array(object):
     "Represents an array."
 
@@ -42,8 +46,15 @@ class Array(object):
     def __setitem__(self, index, new_item):
         """Subscript operator for replacement at index."""
         self.items[index] = new_item
-
-
+    
+    
+    # la solucion de reto esto tengo que estudiar 
+    def __randReplace__(self):
+        return [self.__setitem__(i, random.randint(0, self.capacity)) for i in range(self.capacity)]
+    
+    def __sum__(self):
+        return reduce(lambda start, finish: start+finish, self.items)
+    
 """
 Code used in the shell to create an array
 instance and methods.
